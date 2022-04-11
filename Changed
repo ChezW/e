@@ -1,0 +1,263 @@
+local Killbutton = script.Parent 
+local players = game:GetService("Players"):GetPlayers()
+local findinghum = game.Workspace:GetChildren()
+local Shopframe = script.Parent.Parent
+local clsoe = Shopframe.Close
+local hover = game.Workspace.SoundEffects.Mouse_hover
+local Click = game.Workspace.SoundEffects.pop
+local Lighting = game:GetService("Lighting")
+local Blur = Instance.new("BlurEffect",Lighting)
+Blur.Enabled = false
+
+clsoe.MouseButton1Click:Connect(function()
+	Shopframe.Visible = false
+	Click:Play()
+end)
+
+Shopframe.Visible = false
+local shop = script.Parent.Parent.Parent.Parent.ShopsGui.Shopframe.Shop
+shop.MouseButton1Click:Connect(function()
+	
+	Shopframe.Visible = true
+end)
+
+local function killall()
+	for i, v in pairs (game:GetService("Players"):GetPlayers()) do
+		local char = v.Character
+		print(char)
+		char:FindFirstChild("Humanoid") if "Humanoid" then
+			char.Humanoid.Health = 0
+			print("Died")
+		end
+	end
+end
+
+
+
+
+Killbutton.MouseButton1Click:Connect(function()
+	
+	local player = game.Players.LocalPlayer
+	local proccessing = script.Parent.Parent.Parent.Parent.FramesForShopframe.Proccesing
+	local areyousure = proccessing["Are you sure"]
+	areyousure.Text = "Are you sure you want to but Kill All for 1,000 Points?"
+	local yes = proccessing.Yes
+	local No = proccessing.No
+	--Hover effects
+	yes.MouseEnter:Connect(function()
+		hover:Play()
+	end)
+	No.MouseEnter:Connect(function()
+		hover:Play()
+	end)
+	
+	
+	proccessing.Position = UDim2.new(0.355, 0,0.95, 0)
+	proccessing.Visible = true
+	Blur.Enabled = true
+	proccessing:TweenPosition(UDim2.new(0.355,0,0.325,0),
+		"Out",
+		"Quad",
+		.8,
+		false)
+	yes.MouseButton1Click:Connect(function()
+		Click:Play()
+		areyousure.Text = ""
+		proccessing.Visible = false
+		print(player)
+		local leaderstats = player:FindFirstChild("leaderstats") if "leaderstats" then 
+			local Points = leaderstats:FindFirstChild("Points") if "Points" then 
+				if Points.Value >= 1000 then 
+					killall()
+					Points.Value = Points.Value -1000
+					proccessing.Visible = false
+					proccessing.Position = UDim2.new(0.355, 0,0.95, 0)
+					Blur.Enabled = false
+				else print("player dosen't D:")
+
+				end
+			end
+		end
+		
+	
+	end)
+
+	No.MouseButton1Click:Connect(function()
+		Click:Play()
+		areyousure.Text = ""
+		proccessing:TweenPosition(UDim2.new(0.355, 0,0.95, 0),"Out",
+			"Quad",
+			.45,
+			false)
+		wait(.45) proccessing.Visible = false
+		Blur.Enabled = false
+		
+	end)
+	end)
+local LevelsFrame = script.Parent
+local homebutton = script.Parent.Parent.Parent.ShopsGui.Shopframe.Home
+local hoversound = game.Workspace.SoundEffects.Mouse_hover
+local popsound = game.Workspace.SoundEffects.pop
+local clicksound = game.Workspace.SoundEffects.Click_Effect
+local close = LevelsFrame.Close
+local Lighting = game.Lighting
+local Blur = Instance.new("BlurEffect",Lighting)
+Blur.Enabled = false
+LevelsFrame.Position = UDim2.new(0.302, 0,0.974, 0)
+LevelsFrame.Visible = false
+wait()
+
+homebutton.MouseButton1Click:Connect(function()
+	popsound:Play()
+	LevelsFrame.Visible = true
+	LevelsFrame:TweenPosition(
+
+		UDim2.new(0.303, 0,0.276, 0),
+		"Out",
+		"Quad",
+		.8,
+		false)
+	wait(.8) Blur.Enabled = true
+end)
+
+close.MouseButton1Click:Connect(function()
+	clicksound:Play()
+	
+	LevelsFrame:TweenPosition(
+
+		UDim2.new(0.302, 0,0.974, 0),
+		"Out",
+		"Quad",
+		.6,
+		false)
+	wait(0.2) LevelsFrame.Visible = false
+	Blur.Enabled = false
+end)
+
+homebutton.MouseEnter:Connect(function()
+	hoversound:Play()
+	homebutton:TweenSize(UDim2.new(0,55,0,55),"Out","Quad",0.05, false)
+end)
+homebutton.MouseLeave:Connect(function()
+	homebutton:TweenSize(UDim2.new(0,50,0,50),"Out","Quad",0.05, false)
+end)
+--other tweens
+local Shop = script.Parent.Parent.Parent.ShopsGui.Shopframe.Shop
+Shop.MouseEnter:Connect(function()
+	hoversound:Play()
+	Shop:TweenSize(UDim2.new(0,55,0,55),"Out","Quad",0.05, false)
+end)
+Shop.MouseLeave:Connect(function()
+	Shop:TweenSize(UDim2.new(0,50,0,50),"Out","Quad",0.05, false)
+end)
+local Settings = script.Parent.Parent.Parent.ShopsGui.Shopframe.Settings
+Settings.MouseEnter:Connect(function()
+	hoversound:Play()
+	Settings:TweenSize(UDim2.new(0,55,0,55),"Out","Quad",0.05, false)
+end)
+Settings.MouseLeave:Connect(function()
+	Settings:TweenSize(UDim2.new(0,50,0,50),"Out","Quad",0.05, false)
+	end)
+	
+local Killbutton = script.Parent 
+local players = game:GetService("Players"):GetPlayers()
+local findinghum = game.Workspace:GetChildren()
+local Shopframe = script.Parent.Parent
+local clsoe = Shopframe.Close
+local hover = game.Workspace.SoundEffects.Mouse_hover
+local Click = game.Workspace.SoundEffects.pop
+local Lighting = game:GetService("Lighting")
+local Blur = Instance.new("BlurEffect",Lighting)
+Blur.Enabled = false
+
+clsoe.MouseButton1Click:Connect(function()
+	Shopframe.Visible = false
+	Click:Play()
+end)
+
+Shopframe.Visible = false
+local shop = script.Parent.Parent.Parent.Parent.ShopsGui.Shopframe.Shop
+shop.MouseButton1Click:Connect(function()
+	
+	Shopframe.Visible = true
+end)
+
+local function killall()
+	for i, v in pairs (game:GetService("Players"):GetPlayers()) do
+		local char = v.Character
+		print(char)
+		char:FindFirstChild("Humanoid") if "Humanoid" then
+			char.Humanoid.Health = 0
+			print("Died")
+		end
+	end
+end
+
+
+
+
+Killbutton.MouseButton1Click:Connect(function()
+	
+	local player = game.Players.LocalPlayer
+	local proccessing = script.Parent.Parent.Parent.Parent.FramesForShopframe.Proccesing
+	local areyousure = proccessing["Are you sure"]
+	areyousure.Text = "Are you sure you want to buy Kill All for 1,000 Points?"
+	local yes = proccessing.Yes
+	local No = proccessing.No
+	--Hover effects
+	yes.MouseEnter:Connect(function()
+		hover:Play()
+	end)
+	No.MouseEnter:Connect(function()
+		hover:Play()
+	end)
+	
+	
+	proccessing.Position = UDim2.new(0.355, 0,0.95, 0)
+	proccessing.Visible = true
+	Blur.Enabled = true
+	proccessing:TweenPosition(UDim2.new(0.355,0,0.325,0),
+		"Out",
+		"Quad",
+		.8,
+		false)
+	yes.MouseButton1Click:Connect(function()
+		Click:Play()
+		areyousure.Text = ""
+		proccessing.Visible = false
+		print(player)
+		local leaderstats = player:FindFirstChild("leaderstats") if "leaderstats" then 
+			local Points = leaderstats:FindFirstChild("Points") if "Points" then 
+				if Points.Value >= 1000 then 
+					killall()
+					Points.Value = Points.Value -1000
+					proccessing.Visible = false
+					proccessing.Position = UDim2.new(0.355, 0,0.95, 0)
+					Blur.Enabled = false
+				else print("player dosen't D:")
+
+				end
+			end
+		end
+		
+	
+	end)
+
+	No.MouseButton1Click:Connect(function()
+		Click:Play()
+		areyousure.Text = ""
+		proccessing:TweenPosition(UDim2.new(0.355, 0,0.95, 0),"Out",
+			"Quad",
+			.45,
+			false)
+		wait(.45) proccessing.Visible = false
+		Blur.Enabled = false
+		
+	end)
+	end)
+
+
+
+	
+
+About
