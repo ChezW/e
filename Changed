@@ -7,6 +7,7 @@ local hover = game.Workspace.SoundEffects.Mouse_hover
 local Click = game.Workspace.SoundEffects.pop
 local Lighting = game:GetService("Lighting")
 local Blur = Instance.new("BlurEffect",Lighting)
+--Defeining things
 Blur.Enabled = false
 
 clsoe.MouseButton1Click:Connect(function()
@@ -20,6 +21,7 @@ shop.MouseButton1Click:Connect(function()
 	
 	Shopframe.Visible = true
 end)
+-- Making a open shop button with cliking gui
 
 local function killall()
 	for i, v in pairs (game:GetService("Players"):GetPlayers()) do
@@ -32,7 +34,7 @@ local function killall()
 	end
 end
 
-
+--Making A FUNCTION THAT KILLS EVERYONE
 
 
 Killbutton.MouseButton1Click:Connect(function()
@@ -50,7 +52,7 @@ Killbutton.MouseButton1Click:Connect(function()
 	No.MouseEnter:Connect(function()
 		hover:Play()
 	end)
-	
+	--CONNECTING FUNCTIONS TO OTHER BUTTONS
 	
 	proccessing.Position = UDim2.new(0.355, 0,0.95, 0)
 	proccessing.Visible = true
@@ -74,7 +76,7 @@ Killbutton.MouseButton1Click:Connect(function()
 					proccessing.Position = UDim2.new(0.355, 0,0.95, 0)
 					Blur.Enabled = false
 				else print("player dosen't D:")
-
+--TWEENING AND CHECKING TO SEE IF A PALYER HAS ENOUGH POINTS TO BUY AND THEN SUBTRACTING IT
 				end
 			end
 		end
@@ -255,7 +257,7 @@ Killbutton.MouseButton1Click:Connect(function()
 		
 	end)
 	end)
-
+-- DOING THE SAME THING
 
 
 	
